@@ -62,6 +62,13 @@ body, header, section {
   margin-top: 16px;
 }
 
+.header-secondary{
+  color: var(--blanco);
+  font-family: var(--main-font);
+  font-size: 45px;
+  margin-top: 16px;
+}
+
 .subtitle {
   color: var(--verde);
   font-family: var(--secondary-font);
@@ -110,8 +117,11 @@ nav {
 }
 
 .intro {
-  margin: 0 196px;
+  margin: 24px 196px 0;
   font-family: var(--secondary-font);
+}
+.intro-section {
+  margin-bottom: 20px;
 }
 
 .social-media {
@@ -139,6 +149,15 @@ nav {
   width: 1500px;
 }
 
+.project-container li {
+  display: inline-block;
+}
+
+.project-container button {
+  background: none;
+  border: none;
+}
+
 .project {
   border-radius: 5px;
   border: 2px solid #000;
@@ -147,31 +166,12 @@ nav {
   margin: 0 8px;
   transition: all 0.2s ease-in-out;
   width: 250px;
+  object-fit: cover;
 }
 
 .project:hover {
   cursor: pointer;
   transform: scale(1.1);
-}
-
-.project1 {
-  background: center / cover no-repeat url(./images/project1.png);
-}
-
-.project2 {
-  background: center / cover no-repeat url(./images/project2.png);
-}
-
-.project3 {
-  background: center / cover no-repeat url(./images/project3.png);
-}
-
-.project4 {
-  background: center / cover no-repeat url(./images/project4.png);
-}
-
-.project5 {
-  background: center / cover no-repeat url(./images/project5.png);
 }
 
 .arrow {
@@ -232,6 +232,7 @@ input {
   margin-bottom: 48px;
   width: 150px;
   margin-left: auto;
+  font-size: 16px;
 }
 
 .notification {
@@ -267,10 +268,10 @@ input {
   border: 2px solid #000;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 16px);
+  height: 700px;
   justify-content: center;
   position: fixed;
-  /* top: 15%; */
+  top: 15%;
   width: 700px;
 }
 
