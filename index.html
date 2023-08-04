@@ -17,15 +17,15 @@
       <h2 class="subtitle">Front End Developer</h2>
       <nav>
         <ul class="navigation">
-          <li class="nav-item"><a href="/acerca-de">Acerca de</a></li>
-          <li class="nav-item"><a href="/mis-proyectos">Mis Proyectos</a></li>
-          <li class="nav-item"><a href="/contactos">Contacto</a></li>
+          <li class="nav-item"><a href="#acerca-de">Acerca de</a></li>
+          <li class="nav-item"><a href="#mis-proyectos">Mis Proyectos</a></li>
+          <li class="nav-item"><a href="#contactos">Contacto</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section class="intro-section" name="acerca-de">
+      <section class="intro-section" id="acerca-de">
         <h2 class="header-secondary">Acerca de</h2>
         <p class="intro">
           Hola! Soy Juliana 👋 Soy Colombo-Canadiense, amo los gatos y tambien
@@ -56,10 +56,10 @@
           </li>
         </ul>
       </section>
-      <section name="mis-proyectos">
+      <section id="mis-proyectos">
         <h2 class="header-secondary">Mis Proyectos</h2>
         <div class="carousel">
-          <div class="arrow arrow-left"></div>
+          <div class="arrow arrow-left" aria-label="flecha atrás"></div>
           <div class="window">
             <ul class="project-container">
               <li>
@@ -109,15 +109,16 @@
               </li>
             </ul>
           </div>
-          <div class="arrow arrow-right"></div>
+          <div class="arrow arrow-right" aria-label="flecha siguiente"></div>
         </div>
       </section>
     </main>
-    <footer class="contact-section" name="contactos">
+    <footer class="contact-section" id="contactos">
       <h2 class="header">Contacto</h2>
       <form class="form-container">
-        Nombre<input type="text" /> <br />
-        Correo<input type="text" /> <br />
+        Nombre<input type="text" placeholder="nombre" aria-label="nombre" />
+        <br />
+        Correo<input type="text" placeholder="correo" /> <br />
         <div class="message-input">Mensaje<input type="text" /> <br /></div>
         <button class="send-button">Enviar</button>
       </form>
