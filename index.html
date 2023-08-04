@@ -18,14 +18,14 @@
       <nav>
         <ul class="navigation">
           <li class="nav-item"><a href="/acerca-de">Acerca de</a></li>
-          <li class="nav-item">Mis Proyectos</li>
-          <li class="nav-item">Contacto</li>
+          <li class="nav-item"><a href="/mis-proyectos">Mis Proyectos</a></li>
+          <li class="nav-item"><a href="/contactos">Contacto</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section class="intro-section">
+      <section class="intro-section" name="acerca-de">
         <h2 class="header-secondary">Acerca de</h2>
         <p class="intro">
           Hola! Soy Juliana 👋 Soy Colombo-Canadiense, amo los gatos y tambien
@@ -56,7 +56,7 @@
           </li>
         </ul>
       </section>
-      <section>
+      <section name="mis-proyectos">
         <h2 class="header-secondary">Mis Proyectos</h2>
         <div class="carousel">
           <div class="arrow arrow-left"></div>
@@ -113,16 +113,16 @@
         </div>
       </section>
     </main>
-
-    <div class="contact-section">
-      <div class="header">Contacto</div>
-      <div class="form-container">
+    <footer class="contact-section" name="contactos">
+      <h2 class="header">Contacto</h2>
+      <form class="form-container">
         Nombre<input type="text" /> <br />
         Correo<input type="text" /> <br />
         <div class="message-input">Mensaje<input type="text" /> <br /></div>
-        <div class="send-button">Enviar</div>
-      </div>
-    </div>
+        <button class="send-button">Enviar</button>
+      </form>
+    </footer>
+
     <div class="notification">El formulario fue enviado sin errores</div>
     <div class="modal-container">
       <div class="modal">
