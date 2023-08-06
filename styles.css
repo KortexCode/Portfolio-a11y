@@ -116,9 +116,15 @@ nav {
   background-color: var(--verde);
 }
 
+.nav-item:hover a {
+  font-weight: bold;
+  color: var(--gris-oscuro);
+}
+
 .intro {
   margin: 24px 196px 0;
   font-family: var(--secondary-font);
+  color: #e6e6e6;
 }
 .intro-section {
   margin-bottom: 20px;
