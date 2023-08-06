@@ -59,7 +59,9 @@
       <section id="mis-proyectos">
         <h2 class="header-secondary">Mis Proyectos</h2>
         <div class="carousel">
-          <div class="arrow arrow-left" aria-label="flecha atrás"></div>
+          <button class="arrow arrow-left" aria-label="flecha atras">
+            <img src="./images/play-button-left.png" alt="botón atrás" />
+          </button>
           <div class="window">
             <ul class="project-container">
               <li>
@@ -76,7 +78,7 @@
                   <img
                     src="images/project2.png"
                     class="project project2"
-                    alt="proyecto"
+                    alt="proyecto 2"
                   />
                 </button>
               </li>
@@ -85,41 +87,61 @@
                   <img
                     src="images/project3.png"
                     class="project project3"
-                    alt="proyecto"
+                    alt="proyecto 3"
                   />
                 </button>
               </li>
-              <li>
+              <li aria-hidden="true">
                 <button>
                   <img
                     src="images/project4.png"
                     class="project project4"
-                    alt="proyecto"
+                    alt="proyecto 4"
                   />
                 </button>
               </li>
-              <li>
+              <li aria-hidden="true">
                 <button>
                   <img
                     src="images/project5.png"
                     class="project project5"
-                    alt="proyecto"
+                    alt="proyecto 6"
                   />
                 </button>
               </li>
             </ul>
           </div>
-          <div class="arrow arrow-right" aria-label="flecha siguiente"></div>
+          <button class="arrow arrow-right">
+            <img src="./images/play-button-right.png" alt="botón siguiente" />
+          </button>
         </div>
       </section>
     </main>
     <footer class="contact-section" id="contactos">
       <h2 class="header">Contacto</h2>
       <form class="form-container">
-        Nombre<input type="text" placeholder="nombre" aria-label="nombre" />
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          placeholder="nombre"
+          id="nombre"
+          name="nombre"
+          aria-label="nombre"
+        />
         <br />
-        Correo<input type="text" placeholder="correo" /> <br />
-        <div class="message-input">Mensaje<input type="text" /> <br /></div>
+        <label for="correo">Correo</label>
+        <input type="text" placeholder="correo" id="correo" name="correo" />
+        <br />
+        <div class="message-input">
+          <label for="mensaje">Mensaje</label>
+          <input
+            type="text"
+            placeholder="Mensaje"
+            id="mensaje"
+            name="mensaje"
+          />
+          <br />
+        </div>
         <button class="send-button">Enviar</button>
       </form>
     </footer>
