@@ -70,6 +70,7 @@ body, header, section {
   margin: 16px 0 8px;
   padding: 8px;
   text-decoration: none;
+  outline: none;
 }
 
 .header {
@@ -132,10 +133,13 @@ nav {
 .nav-item:hover {
   background-color: var(--verde);
 }
-
-.nav-item:hover a {
+.nav-item:focus-within {
+  background-color: var(--verde);
+}
+.nav-item:hover a, .nav-item a:focus {
   font-weight: bold;
   color: var(--gris-oscuro);
+  outline: none;
 }
 
 .intro {
@@ -185,6 +189,9 @@ nav {
 .window {
   overflow: hidden;
   width: 805px;
+  padding: 20px;
+  padding-right: 23px;
+  box-sizing:content-box;
 }
 
 .project-container {
@@ -198,8 +205,14 @@ nav {
 }
 
 .project-container button {
-  background: none;
+  padding:0 ;
   border: none;
+  background: none;
+  outline: none;
+}
+
+.project-container button:focus {
+  outline: 3px solid var(--verde);
 }
 
 .project {
@@ -215,7 +228,7 @@ nav {
 
 .project:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.07);
 }
 
 .arrow {
@@ -266,6 +279,14 @@ nav {
   display: flex;
   flex-direction: column;
   width: 30%;
+}
+
+input {
+  padding: 3px;
+}
+
+input:focus {
+  outline: 3px solid var(--verde);
 }
 
 .message-input label {
