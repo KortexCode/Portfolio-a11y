@@ -138,6 +138,27 @@ nav {
   width: 20%;
 }
 
+.social-media__item-list {
+  position: relative;
+}
+
+.twitter-img:hover span, .github-img:hover span, .linkedin-img:hover span{
+  display: block;
+}
+
+.social-media__item-list span {
+  width: 100px;
+  display: none;
+  position: absolute;
+  left: -23px;
+  bottom: -18px;
+  color: var(--blanco);
+}
+
+.github-img:hover span {
+  left: -20px;
+}
+
 .carousel {
   align-items: center;
   display: flex;
