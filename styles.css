@@ -197,7 +197,7 @@ nav {
 .project-container {
   left: 0;
   position: relative;
-  width: 1500px;
+  width: 1370px;
 }
 
 .project-container li {
@@ -240,6 +240,7 @@ nav {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  
 }
 
 .arrow:hover {
@@ -258,8 +259,14 @@ nav {
   background-color: var(--verde);
 
 }
+
+.arrow:focus {
+  outline: 4px dashed var(--blanco);
+}
+
 .arrow img {
-  object-fit: cover;
+  width: 75px;
+  object-fit: contain;
 }
 
 .contact-section {
