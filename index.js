@@ -8,6 +8,9 @@ window.onload = () => {
     element.addEventListener("click", (e) => openModal(e));
   });
   document.body.addEventListener("click", (e) => closeModal(e));
+  document
+    .querySelector(".modal-button")
+    .addEventListener("click", (e) => closeModal(e));
 };
 
 /** Esta funcion se llama cuando la persona hace click en la fecha derecha del carousel para navegar a la derecha */
@@ -26,11 +29,23 @@ function clickRight() {
   switch (newValue) {
     case -270:
       document.querySelector(".project1").setAttribute("tabindex", "-1");
+      document
+        .querySelector(".project1-container")
+        .setAttribute("aria-hidden", true);
       document.querySelector(".project4").removeAttribute("tabindex");
+      document
+        .querySelector(".project4-container")
+        .removeAttribute("aria-hidden");
       break;
     case -540:
       document.querySelector(".project2").setAttribute("tabindex", "-1");
+      document
+        .querySelector(".project2-container")
+        .setAttribute("aria-hidden", "true");
       document.querySelector(".project5").removeAttribute("tabindex");
+      document
+        .querySelector(".project5-container")
+        .removeAttribute("aria-hidden");
       break;
     default:
       break;
@@ -53,11 +68,23 @@ function clickLeft() {
   switch (newValue) {
     case -270:
       document.querySelector(".project5").setAttribute("tabindex", "-1");
+      document
+        .querySelector(".project5-container")
+        .setAttribute("aria-hidden", "true");
       document.querySelector(".project2").removeAttribute("tabindex");
+      document
+        .querySelector(".project2-container")
+        .removeAttribute("aria-hidden");
       break;
     case 0:
       document.querySelector(".project4").setAttribute("tabindex", "-1");
+      document
+        .querySelector(".project4-container")
+        .setAttribute("aria-hidden", "true");
       document.querySelector(".project1").removeAttribute("tabindex");
+      document
+        .querySelector(".project1-container")
+        .removeAttribute("aria-hidden");
       break;
     default:
       break;
@@ -74,17 +101,22 @@ function showNotification() {
 
 /** Esta funcion se llama cuando la persona hace click en cualquier porjecto del carousel */
 function openModal(e) {
+  console.log(e.target.className);
   document.querySelector(".modal-container").style.display = "flex";
 }
 
 /** Esta funcion se llama para cerrar el modal */
 function closeModal(e) {
   // si el click occurio dentro del las imagenes del carousel o dentro del modal, no se cierra el modal
+  console.log(e.target.className);
   if (
     e.target.className.includes("project") ||
-    e.target.className === "modal"
+    e.target.className === "modal" ||
+    e.target.className === "header"
   ) {
     return;
+  } else if (e.target.className === "modal-button") {
+    document.querySelector(".modal-container").style.display = "none";
   } else {
     document.querySelector(".modal-container").style.display = "none";
   }

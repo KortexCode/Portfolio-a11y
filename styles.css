@@ -215,7 +215,7 @@ nav {
   outline: 3px solid var(--verde);
 }
 
-.project {
+.project-img {
   border-radius: 5px;
   border: 2px solid #000;
   display: inline-block;
@@ -226,7 +226,7 @@ nav {
   object-fit: cover;
 }
 
-.project:hover {
+.project-img:hover {
   cursor: pointer;
   transform: scale(1.07);
 }
@@ -368,15 +368,25 @@ input {
   height: 700px;
   justify-content: center;
   position: fixed;
-  top: 15%;
+/*   top: 15%; */
   width: 700px;
 }
 
 .modal-project-image {
-  background: center / cover no-repeat url(./images/project1.png);
   border-radius: 5px;
   border: 2px solid #000;
   height: 400px;
   margin: 16px;
   width: 550px;
+}
+
+.modal-button {
+  margin-bottom: 4px;
+  padding: 8px 10px 8px 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  color: var(--gris-oscuro);
+  background-color: var(--verde);
+  cursor: pointer;
 }
