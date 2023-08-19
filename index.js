@@ -8,6 +8,7 @@ window.onload = () => {
     element.addEventListener("click", (e) => openModal(e));
   });
   document.body.addEventListener("click", (e) => closeModal(e));
+  document.body.addEventListener("keyup", (e) => pressKey(e));
   document
     .querySelector(".modal-button")
     .addEventListener("click", (e) => closeModal(e));
@@ -115,6 +116,7 @@ function openModal(e) {
   }
   //Se hace visible el modal.
   document.querySelector(".modal-container").style.display = "flex";
+  document.getElementById("modal-button--focus").focus();
 }
 
 /** Esta funcion se llama para cerrar el modal */
@@ -131,5 +133,13 @@ function closeModal(e) {
     document.querySelector(".modal-container").style.display = "none";
   } else {
     document.querySelector(".modal-container").style.display = "none";
+  }
+}
+
+function pressKey(e) {
+  console.log(e);
+  if (e.keyCode === 27) {
+    console.log("presionado");
+    closeModal(e);
   }
 }

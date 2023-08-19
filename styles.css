@@ -390,3 +390,8 @@ input {
   background-color: var(--verde);
   cursor: pointer;
 }
+
+.modal-button:focus {
+  border: 5px solid var(--gris-oscuro);
+  outline: solid 3px var(--verde);
+}
