@@ -101,7 +101,19 @@ function showNotification() {
 
 /** Esta funcion se llama cuando la persona hace click en cualquier porjecto del carousel */
 function openModal(e) {
-  console.log(e.target.className);
+  //Se filtrarán las clases marcadas por el target del click que concuerden con el regex
+  const elementClass = e.target.className;
+  const regex = /project([1-5]+)|project-img([1-5]+)/;
+  const arrayMatch = elementClass.match(regex);
+  //Obtenermos la etiqueta img del Modal
+  const img = document.querySelector(".modal-project-image");
+  //Como el regex puede hacer match con dos opciones, se debe validar que grupo () obtuvo.
+  if (arrayMatch[1]) {
+    img.src = `images/project${arrayMatch[1]}.png`;
+  } else {
+    img.src = `images/project${arrayMatch[2]}.png`;
+  }
+  //Se hace visible el modal.
   document.querySelector(".modal-container").style.display = "flex";
 }
 
