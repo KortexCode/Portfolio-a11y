@@ -10,28 +10,11 @@ window.onload = () => {
     element.addEventListener("click", (e) => openModal(e));
   });
   document.body.addEventListener("click", (e) => closeModal(e));
-  window.addEventListener("keyup", (e) => pressKey(e));
-  document
-    .querySelector(".modal-button")
-    .addEventListener("click", (e) => closeModal(e));
+  document.body.addEventListener("keyup", (e) => pressKey(e));
+  const btnClose = document.querySelector(".modal-button");
+  btnClose.addEventListener("click", (e) => closeModal(e));
+  btnClose.addEventListener("blur", unfocusCloseButton, true);
 };
-
-//Si se presiona alguna tecla estando el modal abierto
-function pressKey(e) {
-  /* if (e.key === "Tab") {
-    e.preventDefault();
-    const btnClose = document.getElementById("modal-button--focus");
-    console.log("tab con modal abierto");
-    if (document.activeElement === btnClose) {
-      console.log("dd");
-      btnClose.focus();
-    }
-  } */
-  //Si se presiona la tecla ESC cerrará el modal
-  if (e.keyCode === 27) {
-    closeModal(e);
-  }
-}
 
 /** Esta funcion se llama cuando la persona hace click en la fecha derecha del carousel para navegar a la derecha */
 function clickRight() {
@@ -164,4 +147,17 @@ function closeModal(e) {
     document.querySelector(".modal-container").style.display = "none";
     lastActivedElement.focus();
   }
+}
+
+//Si se presiona alguna tecla estando el modal abierto
+function pressKey(e) {
+  //Si se presiona la tecla ESC cerrará el modal
+  if (e.keyCode === 27) {
+    closeModal(e);
+  }
+}
+
+function unfocusCloseButton() {
+  console.log("Lo dehó");
+  document.querySelector(".modal-button").focus();
 }
