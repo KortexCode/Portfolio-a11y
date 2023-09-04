@@ -1,3 +1,5 @@
+let lastActivedElement = null;
+
 window.onload = () => {
   document.querySelector(".arrow-right").addEventListener("click", clickRight);
   document.querySelector(".arrow-left").addEventListener("click", clickLeft);
@@ -8,11 +10,28 @@ window.onload = () => {
     element.addEventListener("click", (e) => openModal(e));
   });
   document.body.addEventListener("click", (e) => closeModal(e));
-  document.body.addEventListener("keyup", (e) => pressKey(e));
+  window.addEventListener("keyup", (e) => pressKey(e));
   document
     .querySelector(".modal-button")
     .addEventListener("click", (e) => closeModal(e));
 };
+
+//Si se presiona alguna tecla estando el modal abierto
+function pressKey(e) {
+  /* if (e.key === "Tab") {
+    e.preventDefault();
+    const btnClose = document.getElementById("modal-button--focus");
+    console.log("tab con modal abierto");
+    if (document.activeElement === btnClose) {
+      console.log("dd");
+      btnClose.focus();
+    }
+  } */
+  //Si se presiona la tecla ESC cerrará el modal
+  if (e.keyCode === 27) {
+    closeModal(e);
+  }
+}
 
 /** Esta funcion se llama cuando la persona hace click en la fecha derecha del carousel para navegar a la derecha */
 function clickRight() {
@@ -102,6 +121,8 @@ function showNotification() {
 
 /** Esta funcion se llama cuando la persona hace click en cualquier porjecto del carousel */
 function openModal(e) {
+  lastActivedElement = document.activeElement;
+  console.log(lastActivedElement);
   //Se filtrarán las clases marcadas por el target del click que concuerden con el regex
   const elementClass = e.target.className;
   const regex = /project([1-5]+)|project-img([1-5]+)/;
@@ -121,25 +142,26 @@ function openModal(e) {
 
 /** Esta funcion se llama para cerrar el modal */
 function closeModal(e) {
-  // si el click occurio dentro del las imagenes del carousel o dentro del modal, no se cierra el modal
-  console.log(e.target.className);
+  // si el click ocurrió dentro de las imagenes del carousel o dentro del modal no se cerrará el modal
+
+  //Validamos si el modal tiene display flex
+  const state = getComputedStyle(
+    document.querySelector(".modal-container")
+  ).display;
+  //Condicionales que determinan si se debe o no cerrar el modal
   if (
     e.target.className.includes("project") ||
     e.target.className === "modal" ||
     e.target.className === "header"
   ) {
     return;
-  } else if (e.target.className === "modal-button") {
-    document.querySelector(".modal-container").style.display = "none";
-  } else {
-    document.querySelector(".modal-container").style.display = "none";
   }
-}
-
-function pressKey(e) {
-  console.log(e);
-  if (e.keyCode === 27) {
-    console.log("presionado");
-    closeModal(e);
+  if (e.target.className === "modal-button") {
+    document.querySelector(".modal-container").style.display = "none";
+    lastActivedElement.focus();
+  }
+  if (state === "flex") {
+    document.querySelector(".modal-container").style.display = "none";
+    lastActivedElement.focus();
   }
 }
