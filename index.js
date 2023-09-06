@@ -1,16 +1,23 @@
 let lastActivedElement = null;
 
 window.onload = () => {
+  //Eventos de click del las flechas del carrusel
   document.querySelector(".arrow-right").addEventListener("click", clickRight);
   document.querySelector(".arrow-left").addEventListener("click", clickLeft);
+  //Evento de envío de formulario
   document
     .querySelector(".send-button")
     .addEventListener("click", showNotification);
+  //Eventos de apertura del modal
   document.querySelectorAll(".project").forEach((element) => {
     element.addEventListener("click", (e) => openModal(e));
   });
-  document.body.addEventListener("click", (e) => closeModal(e));
-  document.body.addEventListener("keyup", (e) => pressKey(e));
+  //Eventos de cierre del modal con click
+  const modalContainer = document.querySelector(".modal-container");
+  modalContainer.addEventListener("click", (e) => closeModal(e));
+
+  modalContainer.addEventListener("keyup", (e) => pressKey(e));
+  //Eventos de cierre del modal con botón
   const btnClose = document.querySelector(".modal-button");
   btnClose.addEventListener("click", (e) => closeModal(e));
   btnClose.addEventListener("blur", unfocusCloseButton, true);
@@ -151,13 +158,13 @@ function closeModal(e) {
 
 //Si se presiona alguna tecla estando el modal abierto
 function pressKey(e) {
+  console.log("prueba0");
   //Si se presiona la tecla ESC cerrará el modal
   if (e.keyCode === 27) {
     closeModal(e);
   }
 }
-
+//Evita que el focus se vaya del botón de cierre en el modal
 function unfocusCloseButton() {
-  console.log("Lo dehó");
   document.querySelector(".modal-button").focus();
 }

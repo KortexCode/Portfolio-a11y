@@ -395,8 +395,3 @@ input {
   border: 5px solid var(--gris-oscuro);
   outline: solid 3px var(--verde);
 }
-
-.trampa {
-  border: none;
-  background-color: var(--gris-oscuro);
-}
