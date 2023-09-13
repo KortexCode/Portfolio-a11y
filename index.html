@@ -120,6 +120,7 @@
     </main>
     <footer class="contact-section" id="contactos">
       <h2 class="header">Contacto</h2>
+      <p class="contact-section__intro">Envíame un email</p>
       <form class="form-container">
         <label for="nombre">Nombre</label>
         <input
@@ -129,18 +130,16 @@
           name="nombre"
           aria-label="nombre"
         />
+        <span class="form-error" id="name-error"></span>
         <br />
         <label for="correo">Correo</label>
         <input type="text" placeholder="correo" id="correo" name="correo" />
+        <span class="form-error" id="email-error"></span>
         <br />
         <div class="message-input">
           <label for="mensaje">Mensaje</label>
-          <input
-            type="text"
-            placeholder="Mensaje"
-            id="mensaje"
-            name="mensaje"
-          />
+          <textarea name="mensaje" id="mensaje" cols="" rows="10"></textarea>
+          <span class="form-error" id="message-error"></span>
           <br />
         </div>
         <button class="send-button">Enviar</button>

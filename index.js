@@ -4,10 +4,19 @@ window.onload = () => {
   //Eventos de click del las flechas del carrusel
   document.querySelector(".arrow-right").addEventListener("click", clickRight);
   document.querySelector(".arrow-left").addEventListener("click", clickLeft);
+  //Eventos de click en los inputs del formulario
+  document.getElementById("nombre").addEventListener("click", closeErrorName);
+  document.getElementById("correo").addEventListener("click", closeErrorEmail);
+  document
+    .getElementById("mensaje")
+    .addEventListener("click", closeErrorMessage);
+  /*  document.getElementById("correo");
+  document.getElementById("mensaje"); */
+
   //Evento de envío de formulario
   document
     .querySelector(".send-button")
-    .addEventListener("click", showNotification);
+    .addEventListener("click", (e) => validateForm(e));
   //Eventos de apertura del modal
   document.querySelectorAll(".project").forEach((element) => {
     element.addEventListener("click", (e) => openModal(e));
@@ -167,4 +176,54 @@ function pressKey(e) {
 //Evita que el focus se vaya del botón de cierre en el modal
 function unfocusCloseButton() {
   document.querySelector(".modal-button").focus();
+}
+
+//Validar el formulario antes de enviar la norificación
+function validateForm(e) {
+  e.preventDefault();
+  //Etiquetas input de formulario
+  const nameField = document.getElementById("nombre");
+  const emailField = document.getElementById("correo");
+  const messageField = document.getElementById("mensaje");
+  //Etiquetas span de error
+  const nameError = document.getElementById("name-error");
+  const emailError = document.getElementById("email-error");
+  const messageError = document.getElementById("message-error");
+  //Se generan mensajes de error si los campos están vacios
+  if (nameField.value === "") {
+    nameError.textContent = "Debes llenar el campo con un nombre";
+  }
+  if (emailField.value === "") {
+    emailError.textContent = "Debes llenar el campo con un email";
+  }
+  if (messageField.value === "") {
+    messageError.textContent = "Debes llenar el campo con un mensaje";
+  }
+  //Se valida que los campos tengan datos
+  if (
+    nameField.value !== "" &&
+    emailField.value !== "" &&
+    messageField.value !== ""
+  ) {
+    showNotification();
+  }
+}
+//Cerrar mensajes de error al hacer click sobre un input
+function closeErrorName() {
+  const nameError = document.getElementById("name-error");
+  if (nameError.textContent !== "") {
+    nameError.textContent = "";
+  }
+}
+function closeErrorEmail() {
+  const emailError = document.getElementById("email-error");
+  if (emailError.textContent !== "") {
+    emailError.textContent = "";
+  }
+}
+function closeErrorMessage() {
+  const messageError = document.getElementById("message-error");
+  if (messageError.textContent !== "") {
+    messageError.textContent = "";
+  }
 }
