@@ -110,14 +110,6 @@ function clickLeft() {
   }
 }
 
-/** Esta funcion se llama cuando la persona hace click en el boton de enviar del formulario de contacto */
-function showNotification() {
-  document.querySelector(".notification").style.display = "flex";
-  setTimeout(function () {
-    document.querySelector(".notification").style.display = "none";
-  }, 3000);
-}
-
 /** Esta funcion se llama cuando la persona hace click en cualquier porjecto del carousel */
 function openModal(e) {
   lastActivedElement = document.activeElement;
@@ -208,6 +200,17 @@ function validateForm(e) {
     showNotification();
   }
 }
+
+/** Esta funcion se llama cuando la persona hace click en el boton de enviar del formulario de contacto */
+function showNotification() {
+  const noti = document.querySelector(".notification");
+  noti.style.display = "flex";
+  noti.textContent = "El formulario fue enviado sin errores";
+  setTimeout(function () {
+    document.querySelector(".notification").style.display = "none";
+  }, 3000);
+}
+
 //Cerrar mensajes de error al hacer click sobre un input
 function closeErrorName() {
   const nameError = document.getElementById("name-error");

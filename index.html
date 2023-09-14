@@ -130,23 +130,29 @@
           name="nombre"
           aria-label="nombre"
         />
-        <span class="form-error" id="name-error"></span>
+        <span aria-live="assertive" class="form-error" id="name-error"></span>
         <br />
         <label for="correo">Correo</label>
         <input type="text" placeholder="correo" id="correo" name="correo" />
-        <span class="form-error" id="email-error"></span>
+        <span aria-live="assertive" class="form-error" id="email-error"></span>
         <br />
         <div class="message-input">
           <label for="mensaje">Mensaje</label>
           <textarea name="mensaje" id="mensaje" cols="" rows="10"></textarea>
-          <span class="form-error" id="message-error"></span>
+          <span
+            aria-live="assertive"
+            class="form-error"
+            id="message-error"
+          ></span>
           <br />
         </div>
         <button class="send-button">Enviar</button>
       </form>
     </footer>
 
-    <div class="notification">El formulario fue enviado sin errores</div>
+    <div aria-live="assertive">
+      <div class="notification"></div>
+    </div>
     <div class="modal-container">
       <div class="modal" role="dialog" aria-modal="true">
         <h1 class="header" id="modal-header">Ejemplo de un proyecto mio</h1>
