@@ -113,19 +113,16 @@ function clickLeft() {
 /** Esta funcion se llama cuando la persona hace click en cualquier porjecto del carousel */
 function openModal(e) {
   lastActivedElement = document.activeElement;
-  console.log(lastActivedElement);
-  //Se filtrarán las clases marcadas por el target del click que concuerden con el regex
-  const elementClass = e.target.className;
-  const regex = /project([1-5]+)|project-img([1-5]+)/;
-  const arrayMatch = elementClass.match(regex);
+  //Se obtiene la imágen seleccionada en el carrusel
+  const carouselImgSelected = e.target;
   //Obtenermos la etiqueta img del Modal
   const img = document.querySelector(".modal-project-image");
-  //Como el regex puede hacer match con dos opciones, se debe validar que grupo () obtuvo.
-  if (arrayMatch[1]) {
-    img.src = `images/project${arrayMatch[1]}.png`;
-  } else {
-    img.src = `images/project${arrayMatch[2]}.png`;
-  }
+  //Obtener etiqueta de link
+  const link = document.getElementById("modal-project-link");
+  console.log(link);
+  //Se agrega la fuente a la imágen del modal y la dirección al link
+  img.src = carouselImgSelected.src;
+  link.href = carouselImgSelected.dataset.link;
   //Se hace visible el modal.
   document.querySelector(".modal-container").style.display = "flex";
   document.getElementById("modal-button--focus").focus();

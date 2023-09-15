@@ -310,26 +310,6 @@ textarea {
 textarea:focus {
   outline: 3px solid var(--verde);
 }
-/* .message-input textarea {
-  height: 150px;
-  position: relative;
-}
-
-
-.message-input textarea::placeholder {
-  position: absolute;
-  top: 0px;
-} */
-/* .message-input input {
-  height: 150px;
-  position: relative;
-}
-
-
-.message-input input::placeholder {
-  position: absolute;
-  top: 0px;
-} */
 
 input {
   outline: none;
@@ -399,6 +379,7 @@ input {
   height: 400px;
   margin: 16px;
   width: 550px;
+  object-fit: cover;
 }
 
 .modal-button {
