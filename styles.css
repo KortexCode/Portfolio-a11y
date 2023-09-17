@@ -97,9 +97,9 @@ body, header, section {
   border-radius: 50%;
   border: 1px solid var(--gris-oscuro);
   box-shadow: 8px 16px 32px 0px var(--shadow);
-  height: 300px;
+  height: 250px;
   margin-top: 80px;
-  width: 300px;
+  width: 250px;
 }
 
 nav {

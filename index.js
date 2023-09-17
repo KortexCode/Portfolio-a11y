@@ -25,7 +25,7 @@ window.onload = () => {
   const modalContainer = document.querySelector(".modal-container");
   modalContainer.addEventListener("click", (e) => closeModal(e));
 
-  modalContainer.addEventListener("keyup", (e) => pressKey(e));
+  modalContainer.addEventListener("keydown", (e) => pressKey(e));
   //Eventos de cierre del modal con botón
   const btnClose = document.querySelector(".modal-button");
   btnClose.addEventListener("click", (e) => closeModal(e));
@@ -112,17 +112,21 @@ function clickLeft() {
 
 /** Esta funcion se llama cuando la persona hace click en cualquier porjecto del carousel */
 function openModal(e) {
+  console.log("presionado2", e.target);
   lastActivedElement = document.activeElement;
+  if (e.target.className === "project") {
+  }
   //Se obtiene la imágen seleccionada en el carrusel
   const carouselImgSelected = e.target;
   //Obtenermos la etiqueta img del Modal
   const img = document.querySelector(".modal-project-image");
+  const header = document.getElementById("modal-header");
   //Obtener etiqueta de link
   const link = document.getElementById("modal-project-link");
-  console.log(link);
   //Se agrega la fuente a la imágen del modal y la dirección al link
   img.src = carouselImgSelected.src;
   link.href = carouselImgSelected.dataset.link;
+  header.textContent = carouselImgSelected.dataset.name;
   //Se hace visible el modal.
   document.querySelector(".modal-container").style.display = "flex";
   document.getElementById("modal-button--focus").focus();
@@ -156,7 +160,7 @@ function closeModal(e) {
 
 //Si se presiona alguna tecla estando el modal abierto
 function pressKey(e) {
-  console.log("prueba0");
+  console.log("presionado");
   //Si se presiona la tecla ESC cerrará el modal
   if (e.keyCode === 27) {
     closeModal(e);
