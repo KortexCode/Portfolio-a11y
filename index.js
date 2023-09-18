@@ -112,12 +112,15 @@ function clickLeft() {
 
 /** Esta funcion se llama cuando la persona hace click en cualquier porjecto del carousel */
 function openModal(e) {
-  console.log("presionado2", e.target);
+  let carouselImgSelected = null;
+  //Se guarda en la variable global el último elemento activo.
   lastActivedElement = document.activeElement;
-  if (e.target.className === "project") {
+  //Se obtiene la imágen seleccionada en el carrusel dependiendo del target
+  if (e.target.className.includes("project")) {
+    carouselImgSelected = e.target.firstElementChild;
+  } else {
+    carouselImgSelected = e.target;
   }
-  //Se obtiene la imágen seleccionada en el carrusel
-  const carouselImgSelected = e.target;
   //Obtenermos la etiqueta img del Modal
   const img = document.querySelector(".modal-project-image");
   const header = document.getElementById("modal-header");
@@ -148,10 +151,12 @@ function closeModal(e) {
   ) {
     return;
   }
+  //Cierre con botón de cierre
   if (e.target.className === "modal-button") {
     document.querySelector(".modal-container").style.display = "none";
     lastActivedElement.focus();
   }
+  //Cierre con click en el espacio fuera del modal.
   if (state === "flex") {
     document.querySelector(".modal-container").style.display = "none";
     lastActivedElement.focus();
