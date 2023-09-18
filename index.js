@@ -115,8 +115,9 @@ function openModal(e) {
   let carouselImgSelected = null;
   //Se guarda en la variable global el último elemento activo.
   lastActivedElement = document.activeElement;
+  console.log(e.target);
   //Se obtiene la imágen seleccionada en el carrusel dependiendo del target
-  if (e.target.className.includes("project")) {
+  if (e.target.classList[1] === "project") {
     carouselImgSelected = e.target.firstElementChild;
   } else {
     carouselImgSelected = e.target;
