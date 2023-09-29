@@ -1,2 +1,7 @@
 # Portfolio-a11y
-Sitio web para mostrar un portafolio de servicios de desarrollador, el objetivo de este proyecto de aprendizaje es mejorar la accesinilidad aplicando las tecnicas y guías de wcag.
+
+This project is a portfolio of services made with vanilla javascript with the objective of applying accessibility techniques.
+
+## Applied Concepts
+
+- Accesibility
